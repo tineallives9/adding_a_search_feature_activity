@@ -7,6 +7,22 @@
     <link rel="stylesheet" href="normalize.css" media="screen">
     <link rel="stylesheet" href="resets.css" media="screen">
     <link rel="stylesheet" href="styles.css" media="screen">
+    <style>
+        .card {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .card-header {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+    </style>
 </head>
 <body>
     <ul class="nav">
@@ -46,10 +62,7 @@
         document.addEventListener("DOMContentLoaded", function() {
             const studentList = document.getElementById("student-list");
 
-            // Default students
-            studentList.innerHTML = "<li>John Doe</li><li>Jane Smith</li>";
-
-            // Fetch courses.json and display course data
+            // Fetch courses.json and display student data
             fetch("courses.json")
                 .then(response => {
                     if (!response.ok) {
@@ -58,19 +71,20 @@
                     return response.json();
                 })
                 .then(data => {
-                    displayCourses(data);
+                    displayStudents(data);
                 })
                 .catch(error => {
-                    console.error("Error fetching courses:", error);
+                    console.error("Error fetching student data:", error);
                 });
         });
 
-        function displayCourses(courses) {
+        function displayStudents(students) {
             const studentList = document.getElementById("student-list");
+            studentList.innerHTML = ""; // Clear existing content
 
-            courses.forEach(course => {
+            students.forEach(student => {
                 const li = document.createElement("li");
-                li.textContent = `${course.name} - ${course.instructor}`;
+                li.innerHTML = `<strong>${student.name}</strong> - ${student.age} (Course: ${student.course})`;
                 studentList.appendChild(li);
             });
         }
