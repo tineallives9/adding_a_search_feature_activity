@@ -40,6 +40,7 @@
         <div class="card" id="courses">
             <p class="card-header">Courses Taken</p>
             <div class="card-body">
+                <input type="text" id="search-bar" placeholder="Search by description..." onkeyup="searchCourses()">
                 <table border="1">
                     <thead>
                         <tr>
@@ -58,6 +59,17 @@
         </div>
     </div>
 
+    <script>
+        function searchCourses() {
+            let input = document.getElementById("search-bar").value.toLowerCase();
+            let rows = document.querySelectorAll("#courses-list tr");
+            
+            rows.forEach(row => {
+                let description = row.cells[3]?.textContent.toLowerCase() || "";
+                row.style.display = description.includes(input) ? "" : "none";
+            });
+        }
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
