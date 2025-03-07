@@ -7,9 +7,11 @@
     border: 3px solid teal;
     border-radius: 5px;
     width: 70%;
-    margin-top: 3%;
+    margin: 3% auto;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
+    background: white;
+    padding: 15px;
 }
 
 .card-header {
@@ -22,10 +24,9 @@
 
 .card-body {
     padding: 5%;
-    
+    text-align: center;
 }
 
-/* On mouse-over, add a deeper shadow */
 .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
@@ -35,9 +36,9 @@
     list-style-type: none;
     padding: 0;
     margin: 0;
-    text-align: center; /* Centers the text links */
+    text-align: center;
     display: flex;
-    justify-content: center; /* Centers horizontally */
+    justify-content: center; 
 }
 
 .nav li {
@@ -49,4 +50,72 @@
 .nav li a {
     text-decoration: none;
     color: white;
+}
+
+/* Courses Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: teal;
+    color: white;
+}
+
+/* Portfolio Section */
+#activity {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#activity h2 {
+    color: #008080;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+/* Project Cards */
+.projects {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.project-card {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+    width: 200px;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background-color: #008080;
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    margin-top: 10px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background-color: #006666;
 }
