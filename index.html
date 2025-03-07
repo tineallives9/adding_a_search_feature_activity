@@ -7,31 +7,17 @@
     <link rel="stylesheet" href="normalize.css" media="screen">
     <link rel="stylesheet" href="resets.css" media="screen">
     <link rel="stylesheet" href="styles.css" media="screen">
-    <style>
-        .card {
-            border: 1px solid #ccc;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 5px;
-        }
-        .card-header {
-            font-size: 1.5em;
-            font-weight: bold;
-        }
-        ul {
-            list-style-type: disc;
-            padding-left: 20px;
-        }
-    </style>
 </head>
 <body>
-    <ul class="nav">
-        <li><a href="#about">About</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+    <header>
+        <ul class="nav">
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </header>
 
     <div class="page-content">
         <div class="card" id="about">
@@ -51,43 +37,26 @@
             <p class="card-body">Share your previous IT projects.</p>
         </div>
 
-        <!-- Student List Section -->
-        <div class="card">
-            <p class="card-header">Student List</p>
-            <ul id="student-list" class="card-body"></ul>
+    <div class="card" id="courses">
+        <p class="card-header">Courses Taken</p>
+        <div class="card-body">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Year Level</th>
+                        <th>Semester</th>
+                        <th>Course Code</th>
+                        <th>Description</th>
+                        <th>Credits</th>
+                    </tr>
+                </thead>
+                <tbody id="courses-list">
+                    <!-- JavaScript will insert rows here -->
+                </tbody>
+            </table>
         </div>
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const studentList = document.getElementById("student-list");
-
-            // Fetch courses.json and display student data
-            fetch("courses.json")
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error("Failed to load courses.json");
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    displayStudents(data);
-                })
-                .catch(error => {
-                    console.error("Error fetching student data:", error);
-                });
-        });
-
-        function displayStudents(students) {
-            const studentList = document.getElementById("student-list");
-            studentList.innerHTML = ""; // Clear existing content
-
-            students.forEach(student => {
-                const li = document.createElement("li");
-                li.innerHTML = `<strong>${student.name}</strong> - ${student.age} (Course: ${student.course})`;
-                studentList.appendChild(li);
-            });
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
